@@ -154,9 +154,9 @@ exports.trailblazer_list = async function(req,res){
                                             '$$badge.title',
                                             [
                                                 'Customize a Salesforce Object',
-                                                'Service Cloud for Lightning Experience'
-                                                'Knowledge Basics for Lightning Experience'
-                                                'Build a Community with Knowledge and Chat'
+                                                'Service Cloud for Lightning Experience',
+                                                'Knowledge Basics for Lightning Experience',
+                                                'Build a Community with Knowledge and Chat',
                                             ]
                                         ]
                                 }
@@ -186,9 +186,9 @@ exports.trailblazer_list = async function(req,res){
                                             '$$badge.title',
                                             [
                                                 'Customize a Salesforce Object',
-                                                'Service Cloud for Lightning Experience'
-                                                'Knowledge Basics for Lightning Experience'
-                                                'Build a Community with Knowledge and Chat'
+                                                'Service Cloud for Lightning Experience',
+                                                'Knowledge Basics for Lightning Experience',
+                                                'Build a Community with Knowledge and Chat',
                                             ]
                                         ]
                                 }
