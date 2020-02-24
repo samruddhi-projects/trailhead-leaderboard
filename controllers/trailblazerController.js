@@ -667,8 +667,8 @@ exports.trailblazer_list = async function(req,res){
     var results = {
         badgeLeaders: badgeLeaders,
         pointLeaders:pointLeaders,
-        servicecloudBasic:servicecloud1Badges,
-        servicecloudAdvanced:servicecloud2Badges,
+        servicecloud1Badges:servicecloud1Badges,
+        servicecloud2Badges:servicecloud2Badges,
        // newestTrailblazers:newestTrailblazers,
        // badgesThisMonth:badgesThisMonth,
        // badgesLastMonth:badgesLastMonth,
