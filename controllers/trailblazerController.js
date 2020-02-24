@@ -138,6 +138,71 @@ exports.trailblazer_list = async function(req,res){
         ]
     );
 
+    var servicecloud1Badges = await trailblazerFactory.aggregate(
+        [
+            {
+                $project: {
+                    trailblazerId:1,
+                    full_name:1,
+                    badges: {
+                        $size: {
+                            $filter: {
+                                input: "$badges",
+                                as: "badge",
+                                cond: {
+                                        $in:[
+                                            '$$badge.title',
+                                            [
+                                                'Customize a Salesforce Object',
+                                                'Service Cloud for Lightning Experience'
+                                                'Knowledge Basics for Lightning Experience'
+                                                'Build a Community with Knowledge and Chat'
+                                            ]
+                                        ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                $sort: {badges:-1}
+            }
+        ]
+    );
+    var servicecloud2Badges = await trailblazerFactory.aggregate(
+        [
+            {
+                $project: {
+                    trailblazerId:1,
+                    full_name:1,
+                    badges: {
+                        $size: {
+                            $filter: {
+                                input: "$badges",
+                                as: "badge",
+                                cond: {
+                                        $in:[
+                                            '$$badge.title',
+                                            [
+                                                'Customize a Salesforce Object',
+                                                'Service Cloud for Lightning Experience'
+                                                'Knowledge Basics for Lightning Experience'
+                                                'Build a Community with Knowledge and Chat'
+                                            ]
+                                        ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                $sort: {badges:-1}
+            }
+        ]
+    );
+    
     var advancedAdminCert = await trailblazerFactory.aggregate(
         [
             {
@@ -602,15 +667,17 @@ exports.trailblazer_list = async function(req,res){
     var results = {
         badgeLeaders: badgeLeaders,
         pointLeaders:pointLeaders,
-        newestTrailblazers:newestTrailblazers,
+        servicecloudBasic:servicecloud1Badges,
+        servicecloudAdvanced:servicecloud2Badges,
+       // newestTrailblazers:newestTrailblazers,
        // badgesThisMonth:badgesThisMonth,
        // badgesLastMonth:badgesLastMonth,
        // badges2MonthsAgo:badges2MonthsAgo,
-        trailblazersByBadges:trailblazersByBadges,
-        devOneCert:devOneCert,
-        devTwoCert:devTwoCert,
-        adminCert:adminCert,
-        advancedAdminCert:advancedAdminCert,
+       // trailblazersByBadges:trailblazersByBadges,
+       // devOneCert:devOneCert,
+       // devTwoCert:devTwoCert,
+       // adminCert:adminCert,
+       // advancedAdminCert:advancedAdminCert,
         platformAppBuilderCert:platformAppBuilderCert,
     }
     console.log(results);
